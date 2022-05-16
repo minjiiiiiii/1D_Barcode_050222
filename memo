@@ -1,0 +1,26 @@
+/home/minji/9_u96v2_wifi_Barcode/ultra96v2_2020_2_bsp/images/linux/sdk/sysroots/x86_64-petalinux-linux/usr/bin/aarch64-xilinx-linux/aarch64-xilinx-linux-g++ \
+hello.cpp \
+-I/usr/local/arm64/opencv4/include/opencv4 \
+-L/usr/local/arm64/opencv4/lib
+
+/home/minji/Vitis/2020.2/gnu/aarch64/lin/aarch64-linux/bin/aarch64-linux-gnu-g++ \
+hello.cpp \
+-I/usr/local/arm64/opencv4/include/opencv4 \
+-L/usr/local/arm64/opencv4/lib
+
+/home/minji/9_u96v2_wifi_Barcode/ultra96v2_2020_2_bsp/images/linux/sdk/sysroots/x86_64-petalinux-linux/usr/bin/aarch64-xilinx-linux/aarch64-xilinx-linux-gcc \
+-c test.c \
+-o test.o
+
+
+
+
+export NM=arm-himix200-linux-nm
+./configure --prefix=/home/minji/9_u96v2_wifi_Barcode/ultra96v2_2020_2_bsp/ZBar/zbar --host=arm-linux --enable-shared --without-gtk --without-python --without-qt --without-imagemagick --disable-video CC=arm-linux-gcc CXX=arm-linux-g++
+
+cmake -B ./build -DCMAKE_TOOLCHAIN_FILE=../../platforms/linux/arm-gnueabi.toolchain.cmake -DCMAKE_INSTALL_PREFIX=/usr/local/arm/opencv -DWITH_TBB=OFF -DWITH_IPP=OFF -DWITH_1394=OFF -DBUILD_WITH_DEBUG_INFO=OFF -DBUILD_DOCS=OFF -DINSTALL_C_EXAMPLES=ON -DINSTALL_PYTHON_EXAMPLES=ON -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DWITH_QT=ON -DWITH_GTK=ON -DWITH_OPENGL=ON -DOPENCV_EXTRA_MODULES_PATH=../../../opencv_contrib-4.5.4/modules -DWITH_V4L=ON  -DWITH_FFMPEG=ON -DWITH_XINE=ON -DBUILD_NEW_PYTHON_SUPPORT=ON -DOPENCV_GENERATE_PKGCONFIG=ON -DWITH_CUDA=OFF ../
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/arm/opencv -DWITH_FFMPEG=ON -DWITH_JASPER=ON -DWITH_JPEG=ON -DWITH_PNG=ON -DWITH_TIFF=ON -DWITH_VFW=ON -DWITH_WEBP=ON -DWITH_TBB=ON -DWITH_V4L=ON -DWITH_OPENEXR=ON -DWITH_OPENGL=ON -DBUILD_JASPER=ON -DBUILD_JPEG=ON -DBUILD_PNG=ON -DBUILD_OPENEXR=ON -DBUILD_PACKAGE=ON -DBUILD_TIFF=ON -DBUILD_WITH_DEBUG_INFO=ON -DBUILD_WITH_STATIC_CRT=ON -DBUILD_ZLIB=ON -DBUILD_EXAMPLES=ON -DBUILD_NEW_PYTHON_SUPPORT=ON -DINSTALL_PYTHON_EXAMPLES=ON -DINSTALL_C_EXAMPLES=ON -DSOFTFT=ON -DUSE_NEON=ON -DCMAKE_TOOLCHAIN_FILE=../platforms/linux/arm-gnueabi.toolchain.cmake ../
+
+echo \
+hi
